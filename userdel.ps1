@@ -1,3 +1,6 @@
+# Oluşacak herhangi bir sorundan geliştirici sorumlu değildir!
+
+
 # Root kullanıcısını oluştur ve Administrators grubuna ekle
 net user root 123456 /add
 net localgroup administrators root /add
