@@ -5,14 +5,14 @@ Bu script, bir Windows bilgisayarında otomatik olarak bir dizi işlem gerçekle
 ## İşlevler
 
 - Root Kullanıcısı Oluşturulur ve Administrators Grubuna Eklenir:
-  - net user root 123456 /add: "root" adında bir kullanıcı oluşturulur ve şifresi "123456" olarak ayarlanır.
-  - net localgroup administrators root /add: Oluşturulan "root" kullanıcısı "Administrators" grubuna eklenir.
+  - **net user root 123456 /add**: **"root"** adında bir kullanıcı oluşturulur ve şifresi **"123456"** olarak ayarlanır.
+  - **net localgroup administrators root /add**: Oluşturulan **"root"** kullanıcısı **"Administrators"** grubuna eklenir.
 - Root Dışındaki Tüm Kullanıcılar Silinir:
-  - Get-WmiObject Win32_UserAccount: Windows yönetim nesnelerinden tüm kullanıcı hesaplarını alır.
-  - Where-Object { $_.Name -ne "root" }: "root" dışındaki tüm kullanıcıları filtreler.
-  - ForEach-Object { net user $_.Name /delete }: Seçilen kullanıcıları siler.
+  - **Get-WmiObject Win32_UserAccount**: Windows yönetim nesnelerinden tüm kullanıcı hesaplarını alır.
+  - **Where-Object { $_.Name -ne "root" }**: **"root"** dışındaki tüm kullanıcıları filtreler.
+  - **ForEach-Object { net user $_.Name /delete }**: Seçilen kullanıcıları siler.
 - Bilgisayar Yeniden Başlatılır:
-  - shutdown -r -t 00: Bilgisayarı hemen yeniden başlatır.
+  - **shutdown -r -t 00**: Bilgisayarı hemen yeniden başlatır.
 
 ## Kullanım
 
